@@ -1,0 +1,182 @@
+/*!
+ * Bootstrap v2.1.1
+ *
+ * Copyleft 2012 Twitter, Inc
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Designed and built with all the love in the world @twitter by @mdo and @fat.
+ */
+ .container-fluid{
+  background-color: beige !important;
+}
+#SeleccionDia{
+  width: 25% !important;
+  background-color: beige !important;
+  float: left;
+}
+#SeleccionMes{
+  width: 25% !important;
+  background-color: beige !important;
+  float: left;
+}
+
+#SeleccionAnio{
+  width: 25% !important;
+  background-color: beige !important;
+  float: left;
+}
+
+#SeleccionEvento{
+  width: 100% !important;
+  /*background-color: beige !important;*/
+  float: left;
+}
+
+#graficoprovincia{
+  width: 50% !important;
+  /*background-color: beige !important;*/
+  float: left;
+}
+
+#cursovxp{
+  color: black;
+  width: 100% !important;
+  /*background-color: beige !important;*/
+  float: left;
+  text-align: center;
+}
+
+ #cursovxp .axis.x .tick text {
+    color:black;
+    text-decoration-color: black;
+    text-anchor: end;
+    transform: rotate(-60deg) translate(-10px,-12px);
+  }
+
+  #estudios .axis.x .tick text {
+    color:black;
+    text-decoration-color: black;
+    text-anchor: end;
+    transform: rotate(-60deg) translate(-10px,-12px);
+  }
+
+  #medio .axis.x .tick text {
+    color:black;
+    text-decoration-color: black;
+    text-anchor: end;
+    transform: rotate(-60deg) translate(-10px,-12px);
+  }
+
+  #antiguedad .axis.x .tick text {
+    color:black;
+    text-decoration-color: black;
+    text-anchor: end;
+    transform: rotate(-60deg) translate(-10px,-12px);
+  }
+
+
+  #cursovxp2{
+    color: black;
+    width: 100% !important;
+    /*background-color: beige !important;*/
+    float: left;
+    text-align: center;
+  }
+  
+  #cursovxp2 .axis.x .tick text {
+    color:black;
+    text-decoration-color: black;
+    text-anchor: end;
+    transform: rotate(-60deg) translate(-10px,-12px);
+  }
+
+#actividadxtemas {
+  width: 50% !important;
+  /*background-color: beige !important;*/
+  float: left;
+  text-align: center;
+}
+ #actividadxtemas .axis.x .tick text {
+    text-anchor: end;
+    transform: rotate(-60deg) translate(-10px,-12px);
+  }
+
+  #cursovxsemana .axis.x .tick text {
+    text-anchor: end;
+    transform: rotate(-60deg) translate(-10px,-12px);
+  }
+
+ /* #Torta{
+    background-color: beige !important;
+  }*/
+
+  /*#edad{
+    background-color: beige !important;
+  }*/
+
+  /*GRFICO DE TEMAS*/
+
+  g.row{
+
+    height: 20px !important;
+  }
+
+  #graficoxregiones > svg {
+    overflow: hidden;
+    vertical-align: middle;
+    margin:100px !important;
+}
+
+.card-deck {
+  
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.col-12 {
+
+    padding: 30px;
+}
+.dc-select-menu{
+width: 100%;    
+}
+
+#rango_edad > svg > g:nth-child(1) {
+  transform: translate(230px, 200px);
+}
+
+
+#genero > svg > g:nth-child(1){
+transform: translate(215px, 200px);
+
+}
+#genero > svg > g.dc-legend {
+/*transform: translate(25px, 300px);*/
+
+}
+
+.genero {
+  font-weight: bold;
+}
+
+
+#botonpie > a {
+  position: relative !important;
+    bottom: 20px !important;
+}
+
+#botonpie > .informeaula{
+max-width: 33% !important;
+}
+
+.fa-users {
+  
+}
+
+#cursovxsemana > svg  {
+width: 600px !important;
+height: 600px !important;
+  
+}
+

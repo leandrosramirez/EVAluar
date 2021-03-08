@@ -1,0 +1,274 @@
+@CHARSET "ISO-8859-1";
+.logo{
+   max-height:60px;	
+}
+
+.select2-hidden-accessible{
+   width:100%!important;	
+}
+
+.login-panel{
+   background: linear-gradient(174deg, rgb(255, 255, 255) 0%, rgb(21, 167, 82) 100%, rgb(21, 167, 82) 100%)!important;  
+}
+
+h3{
+   /* float: left!important;*/
+}
+
+.checkout-wrap {
+    font-family:'PT Sans Caption', sans-serif;
+    margin: 30px auto 80px;    
+    z-index: 0;
+}
+
+ul.checkout-bar li {
+    color: #ccc;
+    font-size: 16px;
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+    margin: 50px auto;
+    padding: 0;
+    text-align: center;
+    width: 24.5%;
+}
+ul.checkout-bar li:before {
+    -webkit-box-shadow: inset 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
+    background: #ddd;
+    border: 2px solid #FFF;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
+    height: 34px;
+    left: 40%;
+    line-height: 34px;
+    position: absolute;
+    top: -60px;
+    width: 34px;
+    z-index: 99999;
+}
+ul.checkout-bar li.active {
+    color: #A6447A;
+    font-weight: bold;
+}
+ul.checkout-bar li.active:before {
+    background: #f79621;
+}
+ul.checkout-bar li.visited {
+    color: #036c99;
+    z-index: 99999;
+    background: none;
+}
+ul.checkout-bar li.visited:before {
+    background: #036c99;
+    z-index: 99999;
+}
+ul.checkout-bar li:nth-child(1):before {
+    content:"1";
+}
+ul.checkout-bar li:nth-child(2):before {
+    content:"2";
+}
+ul.checkout-bar li:nth-child(3):before {
+    content:"3";
+}
+ul.checkout-bar li:nth-child(4):before {
+    content:"4";
+}
+ul.checkout-bar li:nth-child(5):before {
+    content:"5";
+}
+ul.checkout-bar li:nth-child(6):before {
+    content:"6";
+}
+ul.checkout-bar a {
+    color: #ccc;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+}
+ul.checkout-bar li.active a {
+    color: #4f8e5e;
+}
+ul.checkout-bar li.visited a {
+    color: #036c99;
+}
+.checkout-bar li.active:after {
+    -webkit-animation: myanimation 3s 0;
+    background-size: 35px 35px;
+    background-color: #56b16c;
+    background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+    background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+    -webkit-box-shadow: inset 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
+    content:"";
+    height: 15px;
+    width: 100%;
+    left: 50%;
+    position: absolute;
+    top: -50px;
+    z-index: 0;
+}
+ul.checkout-bar {
+    -webkit-box-shadow: inset 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
+    background-size: 35px 35px;
+    background-color: #EcEcEc;
+    background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, 0.4) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.4) 75%, transparent 75%, transparent);
+    background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, 0.4) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.4) 75%, transparent 75%, transparent);
+    border-radius: 15px;
+    height: 15px;
+    margin: 0 -15px 0;
+    padding: 0;
+    position: absolute;
+    width: 100%;
+}
+ul.checkout-bar:before {
+    background-size: 35px 35px;
+    background-color: #4f8e5e;
+    background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+    background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+    -webkit-box-shadow: inset 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    content:" ";
+    height: 15px;
+    left: 0;
+    position: absolute;
+    width: 14%;
+}
+ul.checkout-bar li.visited:after {
+    background-size: 35px 35px;
+    background-color: #036c99;
+    background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+    background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+    -webkit-box-shadow: inset 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
+    content:"";
+    height: 15px;
+    left: 50%;
+    position: absolute;
+    top: -50px;
+    width: 100%;
+    z-index: 99;
+}
+
+.background-image-css {
+    /*background-image: url(../img/background-image4.jpg);*/
+    background-image: url(../img/autumn-nature-detail.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 900px;
+    position: absolute;
+    background-color: #010101;
+    background-attachment: fixed;
+}
+
+.not-registered{
+	color: #ffffff!important;
+    margin-top: 28px;
+    overflow: hidden;
+    top: 10px;
+    position: relative;
+}
+
+.not-registered a {
+    color: #ffffff;
+}
+
+.forgot-pass{
+	color: #888888;
+    position: relative;
+}
+
+
+.login-form .signin{
+	background:#33B8EA;
+	width:100%;
+	color:#ffffff;
+}
+
+.login-form .backtologin{
+	background:#33B8EA;
+	width:48%;
+	color:#ffffff;
+}
+
+.login-form .selectrole{
+	background:#33B8EA;
+	width:48%;
+	color:#ffffff;
+}
+
+.form-group{
+	
+	margin-bottom:15px!important;
+	
+}
+
+.login-form-logo{
+	text-align: left!important;
+    margin-left: 10px;
+    margin-right: 5px;
+    padding: 30px;
+    color: #ffffff;	
+}
+
+.login-form-logo .logo-width{
+	
+	width:70%;
+	margin-bottom: 20px;
+	
+}
+
+.text-left{
+
+	margin-top: 20px;
+    font-weight: 700;
+    color: #ffffff;
+	
+}
+
+.line-seperator{
+	border-right: 1px solid #ffffff;
+}
+
+.login-form{
+	    text-align: center;
+    margin-left: 45px;
+    margin-right: 45px;
+    background: #ffffff;
+    border-radius: 9px;
+    padding: 30px;
+	
+}
+
+.login-form h2{
+	
+	color:#707070!important;
+	
+}
+
+.login-form .form-control{
+	
+	background:#D6D6D6!important;
+	
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #8A8A8A!important;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #8A8A8A!important;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #8A8A8A!Important;
+}
