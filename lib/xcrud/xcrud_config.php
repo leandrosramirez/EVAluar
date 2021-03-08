@@ -2,9 +2,9 @@
 class Xcrud_config
 {
     // default connection
-    public static $dbname = 'xcrud_nuevo'; // Your database name
-    public static $dbuser = 'leandro'; // Your database username
-    public static $dbpass = 'Libre24320447'; // // Your database password
+    public static $dbname = 'evaluar'; // Your database name
+    public static $dbuser = 'root'; // Your database username
+    public static $dbpass = ''; // // Your database password
     public static $dbhost = 'localhost'; // Your database host, 'localhost' is default.
 	//public static $dbport = '3307'; // Your database host, 'localhost' is default.
     
@@ -47,7 +47,7 @@ class Xcrud_config
     public static $load_tabulator = true; 
     
     // editor
-    //public static $editor_url = 'editors/tinymce/tinymce.min.js'; // URL path to editor script, if you want to use the visual editor.
+    public static $editor_url = 'editors/tinymce/tinymce.min.js'; // URL path to editor script, if you want to use the visual editor.
     //public static $editor_url = 'editors/ckeditor/ckeditor.js';
     public static $editor_init_url = ''; //  URL path to your custom initialization file for editor.
     public static $force_editor = false; // Forced initialization of editor, even if the path is not specified. Check this if you're already using editor on your page.
