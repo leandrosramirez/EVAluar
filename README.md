@@ -1,21 +1,42 @@
 # EVAluar
-## Sistema de Gestión para evaluación de Programas de Formación 
-
-### Ambiente de desarrollo: http://datossociales.com/evaluar/
+## Sistema de Gestión, Seguimiento y evaluación de Programas de Formación
 
 ### Objetivo
 
 Este sistema desarrollado por la Dirección Nacional de Formación Cultural (DNFC) cumple con la 
-administración y evaluación de las postulaciones de participantes inscriptos a los diversos cursos y talleres ofrecidos desde la Dirección.
-La evaluación es realizada por diferentes roles: Equipo de Evaluadores - Directores de DNFC.
+administración y evaluación de las postulaciones de participantes inscriptos a los diversos cursos y talleres ofrecidos desde la Dirección Nacional de Formación Cultural.
+La evaluación es realizada por roles evaluadores de cada programa de formación: 
+Equipo de Evaluadores.
+Directores de DNFC.
 
 ### Base de datos
 
-El insumo descargable desde la plataforma de encuestas y formularios, LimeSurvey, en formato CSV, actúa como la BD de postulantes.
+La estructura de la base de datos MySQL está constituida por tablas que representan el 
+* conjunto de datos de participantes a los programas de formación.
+* Estructura de usuarios y roles
+* Estructura tablas con campos agregados que permiten valorar los registros de participantes.  
+
+Estructura de archivos:
+
 
 ### Tecnologías utilizadas
-* PHP
-* xcrud
-* MySQL
-* Boostrap
+* PHP 7.x
+* xcrud 1.6
+* MySQL 5.7.33
+* Boostrap 4.x
+* Apache 2.4.33
 
+#Implementación
+
+1 clonar el repositorio en una carpeta (puede usar cualquier nombre),
+2 Crear la base de datos en MySQL (puede importar la base de datos de la carpeta _db).
+3 configurar las credenciales de acceso a la base de datos en el archivo /lib/xcrud/xcrud_config.php
+    public static $dbname = 'nombre_db'; 
+    public static $dbuser = 'nombre_usuarie';
+    public static $dbpass = 'clave de acceso'; 
+    public static $dbhost = 'localhost';
+4 correr el archivo deplegar_db.php
+
+
+    
+	
