@@ -26,16 +26,18 @@ Estructura de archivos:
 * Boostrap 4.x
 * Apache 2.4.33
 
-#Implementación
+# Implementación
 
-1 clonar el repositorio en una carpeta (puede usar cualquier nombre),
-2 Crear la base de datos en MySQL (puede importar la base de datos de la carpeta _db).
-3 configurar las credenciales de acceso a la base de datos en el archivo /lib/xcrud/xcrud_config.php
+*  Clonar el repositorio en una carpeta (puede usar cualquier nombre),
+*  Crear la base de datos en MySQL (puede importar la base de datos de la carpeta _db).
+*  Configurar las credenciales de acceso a la base de datos en el archivo __/lib/xcrud/xcrud_config.php__
+    ```bash
     public static $dbname = 'nombre_db'; 
     public static $dbuser = 'nombre_usuarie';
     public static $dbpass = 'clave de acceso'; 
     public static $dbhost = 'localhost';
-4 correr el archivo deplegar_db.php
+    ```
+* Correr el archivo deplegar_db.php
 
 
     
