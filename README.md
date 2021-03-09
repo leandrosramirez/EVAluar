@@ -19,7 +19,7 @@ La estructura de la base de datos MySQL está constituida por tablas que represe
 
 ### Estructura de archivos:
 
-Los archivos de gestión del cada programa se van cargando/subiendo desde la interface web y quedan guardados en la carpeta /lib/uploads
+Los archivos de gestión del cada programa se van cargando/subiendo desde la interface web y quedan guardados en la carpeta __/lib/uploads__
 
 ### Tecnologías utilizadas
 
