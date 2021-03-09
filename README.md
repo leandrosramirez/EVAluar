@@ -3,11 +3,11 @@
 
 ### Objetivo
 
-Este sistema desarrollado por la Dirección Nacional de Formación Cultural (DNFC) cumple con la 
-administración y evaluación de las postulaciones de participantes inscriptos a los diversos cursos y talleres ofrecidos desde la Dirección Nacional de Formación Cultural.
+Este sistema desarrollado por la Dirección Nacional de Formación Cultural (DNFC) gestiona la 
+el proceso de evaluación de las postulaciones de participantes inscriptos a los diversos cursos y talleres ofrecidos desde la Dirección Nacional de Formación Cultural.
 La evaluación es realizada por roles evaluadores de cada programa de formación: 
-Equipo de Evaluadores.
-Directores de DNFC.
+Equipo de evaluadores.
+Directores.
 
 ### Base de datos
 
@@ -16,15 +16,17 @@ La estructura de la base de datos MySQL está constituida por tablas que represe
 * Estructura de usuarios y roles
 * Estructura tablas con campos agregados que permiten valorar los registros de participantes.  
 
-Estructura de archivos:
+### Estructura de archivos:
 
+Los archivos de gestión del cada programa se van cargando/subiendo desde la interface web y quedan guardados en la carpeta /lib/uploads
 
 ### Tecnologías utilizadas
+
+* Apache 2.4.33
 * PHP 7.x
 * xcrud 1.6
 * MySQL 5.7.33
 * Boostrap 4.x
-* Apache 2.4.33
 
 # Implementación
 
