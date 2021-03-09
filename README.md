@@ -29,7 +29,7 @@ Estructura de archivos:
 # Implementación
 
 *  Clonar el repositorio en una carpeta (puede usar cualquier nombre),
-*  Crear la base de datos en MySQL (puede importar la base de datos de la carpeta _db).
+*  Crear la base de datos en MySQL (importe la base de datos de la carpeta _db).
 *  Configurar las credenciales de acceso a la base de datos en el archivo __/lib/xcrud/xcrud_config.php__
     ```bash
     public static $dbname = 'nombre_db'; 
@@ -37,7 +37,7 @@ Estructura de archivos:
     public static $dbpass = 'clave de acceso'; 
     public static $dbhost = 'localhost';
     ```
-* Correr el archivo deplegar_db.php
+
 
 
     
