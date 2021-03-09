@@ -23,10 +23,15 @@ Los archivos de gestión del cada programa se van cargando/subiendo desde la int
 
 ### Tecnologías utilizadas
 
+# Entorno web
 * Apache 2.4.33
-* PHP 7.x
-* xcrud 1.6
+* PHP 7.x 
 * MySQL 5.7.33
+* HTML
+
+
+# Libleria / Bibliotecas 
+* xcrud 1.6
 * Boostrap 4.x
 
 # Implementación
