@@ -1,6 +1,7 @@
 ![EVAluar](evaluar_.png)
 # EVAluar
-## Sistema de Gestión, Seguimiento y evaluación de Programas de Formación
+## Sistema de gestión, seguimiento y evaluación de programas de formación
+### Secretaria de Gestión Cultural | Dirección Nacional de Formación Cultural | Ministerio de Cultura de la Nación
 
 ### Objetivo
 
