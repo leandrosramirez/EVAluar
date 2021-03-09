@@ -5,11 +5,10 @@
 
 ### Objetivo
 
-Este sistema desarrollado por la Dirección Nacional de Formación Cultural (DNFC) gestiona la 
-el proceso de evaluación de las postulaciones de participantes inscriptos a los diversos cursos y talleres ofrecidos desde la Dirección Nacional de Formación Cultural.
+Este sistema desarrollado por la Dirección Nacional de Formación Cultural (DNFC) gestiona el proceso de evaluación de las postulaciones de participantes inscriptos a los diversos cursos y talleres ofrecidos desde la Dirección Nacional de Formación Cultural.
 La evaluación es realizada por roles evaluadores de cada programa de formación: 
-Equipo de evaluadores.
-Directores.
+- Equipo de evaluadores.
+- Directores.
 
 ### Base de datos
 
