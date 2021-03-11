@@ -15,8 +15,8 @@ $xcrud->label('startdate','Fecha de inicio');
 $xcrud->label('datestamp','Fecha de la última acción');
 $xcrud->label('ipaddr','Dirección IP');
 $xcrud->label('refurl','URL de referencia');
-$xcrud->label('db1','Escribí tu nombre:');
-$xcrud->label('db2','Escribí tu apellido:');
+$xcrud->label('db1','Nombre:');
+$xcrud->label('db2','Apellido:');
 $xcrud->label('db3','Tu nacionalidad es:');
 $xcrud->label('db3a1','Seleccioná tu continente de residencia');
 $xcrud->label('db312','Seleccioná tu país de residencia en América');
@@ -84,8 +84,8 @@ $xcrud->label('P2','¿Por qué te interesa participar del curso? (Agradecemos de
 $xcrud->label('P3','¿En qué medida y aspectos los contenidos del curso pueden ser relevantes para la institución en la que trabajás?');
 $xcrud->label('P4','¿Por qué creés que los contenidos del curso pueden ser de interés o contribuir a tu desarrollo profesional individual y/o a tu desempeño como parte del sector cultural local?');
 $xcrud->label('P5','Comentarios o consideraciones adicionales (Aquí podés compartir otras reflexiones, aportes o experiencias destacadas vinculadas a tu desempeño laboral y/o desarrollo profesional)');
-$xcrud->label('CO2','En esta sección tenés que escribir tu Curriculum Vitae actualizado (Longitud máxima de 1000 caracteres).');
-$xcrud->label('co3','En esta sección tenés que adjuntar una nota del referente o autoridad de tu institución de pertenencia (por lo menos, de un cargo superior al tuyo). Esta carta deberá avalarte como postulante al curso, corroborar que actualmente te desempeñás en la institución (explicitar tu cargo, rol o funciones actuales) y dar certeza de que vas a poder cumplir con las actividades y/o compromisos del curso que coincidan con tu horario laboral. Existe un modelo de nota aval en caso de que la necesites, podés encontrarla en la web de la convocatoria o solicitándola por email a gcp@cultura.gob.ar. Si no adjunta este documento específico quedará fuera de la postulación automaticamente.');
+$xcrud->label('CO2','Curriculum Vitae');
+//$xcrud->label('co3','En esta sección tenés que adjuntar una nota del referente o autoridad de tu institución de pertenencia (por lo menos, de un cargo superior al tuyo). Esta carta deberá avalarte como postulante al curso, corroborar que actualmente te desempeñás en la institución (explicitar tu cargo, rol o funciones actuales) y dar certeza de que vas a poder cumplir con las actividades y/o compromisos del curso que coincidan con tu horario laboral. Existe un modelo de nota aval en caso de que la necesites, podés encontrarla en la web de la convocatoria o solicitándola por email a gcp@cultura.gob.ar. Si no adjunta este documento específico quedará fuera de la postulación automaticamente.');
 $xcrud->label('co3filecount','¿Carta aval?');
 $xcrud->label('CO1','Confirmo que leí el programa del curso y acepto los requisitos de participación y aprobación. Podés consultar el marco de la convocatoria y las condiciones de participación del curso de Formación en Gestión Cultural Pública en modalidad a distancia en la página web: www.cultura.gob.ar .');
 $xcrud->label('PROVINCIA','PROVINCIA');
@@ -116,9 +116,12 @@ $xcrud->change_type('preg08','select','',',1,2,3,4,5');
 
 //Solapas del legajo 
 
-$xcrud->fields('db1,db2,db3,db3a1,db312,db315,db314,db313,db316,db9,db9other,db10,db11,db12,db13,db14,db15,db16,db22,db23,db23a1,db7,C24,C25,C25other,C251,C26,C27,C28,C29,C291,c30,c30other,c31,c32,c33,c34,C35,C36,C37,PA1,PA2,PA3,PA4,conexion30,conexion31,conexion32SQ001,conexion32SQ002,conexion32SQ003,conexion33SQ001,conexion33SQ002,conexion33SQ003,conexion33SQ004,conexion34,conexion35,conexion36,DI1,DI2,DI3,DI4,DI5,DI6,DI7,P1,P1other,P2,P3,P4,P5,CO2,co3,co3filecount,CO1,PROVINCIA,DEPARTAMENTO,LOCALIDAD', false, 'Perfil del postulante');
+$xcrud->fields('db1,db2,db3,db3a1,db312,db315,db314,db313,db316,db9,db9other,db10,db11,db12,db13,db14,db15,db16,db23a1,db7,C24,C25,C25other,C251,C26,C27,C29,C291,c30,c30other,c32,c33,c34,C36,C37,PA1,PA2,PA3,PA4,DI2,DI3,DI4,DI5,DI7,P1,P1other,CO2,co3filecount,CO1,PROVINCIA,DEPARTAMENTO,LOCALIDAD', false, 'Perfil del postulante');
 $xcrud->fields('preg01,preg02,preg03,preg04,preg05', false, 'Requisitos excluyentes');
-$xcrud->fields('preg07,preg08,preg09,preg10,preg11,preg12', false, 'Evaluación Cualitativa');
+$xcrud->fields('preg08,CO2,preg12', false, 'Evaluación Cualitativa');
+
+
+$xcrud->field_tooltip('co3filecount',' 1 = Presentó');
 
 //campos desabilitados
 $xcrud->disabled('db1');
