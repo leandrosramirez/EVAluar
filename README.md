@@ -30,7 +30,7 @@ Los archivos de gestión del cada programa se van cargando/subiendo desde la int
 * HTML
 
 
-# Libleria / Bibliotecas 
+# Libreria / Bibliotecas 
 * xcrud 1.6
 * Boostrap 4.x
 
