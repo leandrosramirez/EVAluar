@@ -293,7 +293,7 @@ $xcrud->highlight_row('evaluadoF', '=', "1", '#CBFF22'); // highlight_row resalt
 
 
 $xcrud->where("c35 = 'Me postulé pero no obtuve una vacante' OR ( co3filecount = 1 AND c33='No' ) "); // Me postulé pero no obtuve una vacante = Ya participo de GCP pero no curso / ( 1 = Subio carta aval Y  c33=No - No curso GCP)
-
+$xcrud->where('grupo =', '6'); // Filtra por grupo 6
 
 
 //$xcrud->where("content.catid = 5 AND content.created > '{$last_visit}'");
