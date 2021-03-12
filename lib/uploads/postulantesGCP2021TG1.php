@@ -306,7 +306,8 @@ $xcrud->where("c35 = 'Me postulé pero no obtuve una vacante' OR ( co3filecount 
 //$xcrud->where('co3filecount =', 1); // 0 = No cargo carta AVAL. (para marcar clausula OR , se utiliza or_where , si fuera AND es solo where.)
 
 //$xcrud->where('region =', "4"); //filtra por regiones de la 1  LA 6 NO PUEDEN HABER DOS REGIONES JUNTAS
-//$xcrud->query('SELECT * FROM _preinscriptos WHERE G7Q00001 = "Sí"');
+//$xcrud->query('SELECT * FROM gcp2021 LIMIT 0, (COUNT(`id`)/6)');
+//$xcrud->where('grupo =', "1");
 
 
 //xcrud->button('{G6Q00001}', 'Descargar CV','icon-file','',array('target'=>'_blank'));
@@ -314,6 +315,9 @@ $xcrud->where("c35 = 'Me postulé pero no obtuve una vacante' OR ( co3filecount 
 
 ///////////////// EJEMPLO ///$xcrud->subselect('Products count','SELECT COUNT(*) FROM orderdetails WHERE orderNumber = {orderNumber}','status'); 
 //$xcrud->subselect('Puntaje','{c2}+{c3}+{c4}+{c5}+{c6}+{c7}+{c8}+{c9}');
+//$xcrud->subselect('Grupo 1','SELECT count(id)/6 FROM gcp2021'); // insert as last column
+//$xcrud->query('SELECT db1,db2,PROVINCIA,LOCALIDAD FROM gcp2021 WHERE id < 100');
+//“>” y “<”. 
 
 
 //selector de regiones

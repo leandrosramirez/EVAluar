@@ -91,6 +91,8 @@ $xcrud->label('CO1','Confirmo que leí el programa del curso y acepto los requis
 $xcrud->label('PROVINCIA','PROVINCIA');
 $xcrud->label('DEPARTAMENTO','DEPARTAMENTO');
 $xcrud->label('LOCALIDAD','LOCALIDAD');
+$xcrud->label('evaluadoT','Evaluación Técnica');
+$xcrud->label('evaluadoF', 'Evaluación Final');
 
 //preguntas de evaluación excluyentes
 $xcrud->label('preg01','¿Presentó aval institucional válido y vigente?');
@@ -108,19 +110,19 @@ $xcrud->label('preg11','¿Está participando de otros programas o propuestas for
 $xcrud->label('preg12','comentarios');
 
 //DATOS QUE SE MUESTRAN EN LA LISTA 
-$xcrud->columns('db1,db2,PROVINCIA,LOCALIDAD,c33, co3filecount');
-
+$xcrud->columns('db1,db2,PROVINCIA,LOCALIDAD,c33,co3filecount,evaluadoT, evaluadoF');
 
 //Ponderación preguntas evaluación cualitativa
 $xcrud->change_type('preg08','select','',',1,2,3,4,5');
 
 //Solapas del legajo 
-
 $xcrud->fields('db1,db2,db3,db3a1,db312,db315,db314,db313,db316,db9,db9other,db10,db11,db12,db13,db14,db15,db16,db23a1,db7,C24,C25,C25other,C251,C26,C27,C29,C291,c30,c30other,c32,c33,c34,C36,C37,PA1,PA2,PA3,PA4,DI2,DI3,DI4,DI5,DI7,P1,P1other,CO2,co3filecount,CO1,PROVINCIA,DEPARTAMENTO,LOCALIDAD', false, 'Perfil del postulante');
-$xcrud->fields('preg01,preg02,preg03,preg04,preg05', false, 'Requisitos excluyentes');
-$xcrud->fields('preg08,CO2,preg12', false, 'Evaluación Cualitativa');
+$xcrud->fields('preg01,preg02,preg03,preg05', false, 'Requisitos excluyentes');
+$xcrud->fields('preg08,CO2,preg04,preg12,evaluadoT', false, 'Evaluación Cualitativa');
 
-
+// tooltips cualitativa //
+$xcrud->field_tooltip('preg08','1 = Mucha experiencia; 2 = Buena experiencia; 3 = Algo de experiencia; 4 = Poca experiencia; 5 = Nada de experiencia');
+$xcrud->field_tooltip('preg12','Destacar información crítica para evaluar la postulación');
 $xcrud->field_tooltip('co3filecount',' 1 = Presentó');
 
 //campos desabilitados
@@ -206,6 +208,8 @@ $xcrud->disabled('LOCALIDAD');
 //excluyentes de la evaluación
 $xcrud->highlight_row('c33', '=', "Sí", '#d1403e'); // highlight_row resalta con color la fila en la cuadricula
 $xcrud->highlight_row('co3filecount', '=', 0, '#d1403e'); // 
+$xcrud->highlight_row('evaluadoT', '=', "1", '#EEFFB6'); // highlight_row resalta con color la fila en la cuadricula
+$xcrud->highlight_row('evaluadoF', '=', "1", '#CBFF22'); // highlight_row resalta con color la fila en la cuadricula
 
 
 //$xcrud->disabled('evaluacion_final_evaluador1');
