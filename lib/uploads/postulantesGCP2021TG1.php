@@ -4,7 +4,7 @@
 $xcrud = Xcrud::get_instance();
 $xcrud->table('gcp2021');
 $xcrud->language('es');
-$xcrud->table_name('Evaluación cuantitativa y cualitativa de Postulantes');
+$xcrud->table_name('Evaluación cuantitativa y cualitativa de Postulantes <a class="btn btn-primary" href="https://datossociales.com/evaluar/lib/uploads/Guia_para_equipo_evaluador_de_postulaciones_para_GCP_2021.pdf" target="_blank" ><i class="fa fa-file"></i>  Guia de Evaluación</a>');
 
 $xcrud->label('id','ID de respuesta');
 $xcrud->label('submitdate','Fecha de envío');
@@ -95,7 +95,7 @@ $xcrud->label('LOCALIDAD','LOCALIDAD');
 //preguntas de evaluación excluyentes
 $xcrud->label('preg01','¿Presentó aval institucional válido y vigente?');
 $xcrud->label('preg02','¿Completó el anexo de motivaciones personales e institucionales que forma parte del aval?');
-$xcrud->label('preg03','¿Quién promueve la postulación del candidato/a al curso?');
+$xcrud->label('preg03','¿Quién promueve la postulación del candidato/a al curso? (Nombre y Cargo) ');
 $xcrud->label('preg04','¿Presentó CV completo y actualizado? ');
 $xcrud->label('preg05','¿Trabaja actualmente en una institución cultural pública identificable? ');
 $xcrud->label('preg06','¿Participó en ed. previas de GCP? ');
@@ -118,15 +118,18 @@ $xcrud->change_type('preg08','select','',',1,2,3,4,5');
 
 //Solapas del legajo 
 
-$xcrud->fields('db1,db2,db3,db3a1,db312,db315,db314,db313,db316,db9,db9other,db10,db11,db12,db13,db14,db15,db16,db23a1,db7,C24,C25,C25other,C251,C26,C27,C29,C291,c30,c30other,c32,c33,c34,C36,C37,PA1,PA2,PA3,PA4,DI2,DI3,DI4,DI5,DI7,P1,P1other,CO2,co3filecount,CO1,PROVINCIA,DEPARTAMENTO,LOCALIDAD', false, 'Perfil del postulante');
+$xcrud->fields('db1,db2,db3,db9,db10,db11,db12,db13,db14,db15,db16,db23a1,db7,C24,C25,C25other,C251,C26,C27,C29,C291,c30,c30other,c32,c33,c34,C36,C37,PA1,PA2,PA3,PA4,DI2,DI3,DI4,DI5,DI7,P1,P1other,CO2,co3filecount,CO1,PROVINCIA,DEPARTAMENTO,LOCALIDAD', false, 'Perfil del postulante');
 $xcrud->fields('preg01,preg02,preg03,preg05', false, 'Requisitos excluyentes');
 $xcrud->fields('preg08,CO2,preg04,preg12,evaluadoT', false, 'Evaluación Cualitativa');
 
 // tooltips cualitativa //
-$xcrud->field_tooltip('preg08','1 = Mucha experiencia; 2 = Buena experiencia; 3 = Algo de experiencia; 4 = Poca experiencia; 5 = Nada de experiencia');
+$xcrud->field_tooltip('preg08','Ver Guía de Evaluación');
 $xcrud->field_tooltip('preg12','Destacar información crítica para evaluar la postulación');
-$xcrud->field_tooltip('co3filecount',' 1 = Presentó');
 
+
+
+//boton carta aval
+$xcrud->button('{co3}', 'Carta Aval','icon-file','',array('target'=>'_blank'));
 
 
 
@@ -343,7 +346,7 @@ $xcrud->where('grupo =', '1'); // Filtra por grupo 1
 
 //inhabilitar edición de campos
 $xcrud->change_type('CO2','none');
-
+$xcrud->change_type('PA4','none');
 
 //$xcrud->change_type('t1','none');
 //$xcrud->change_type('t2','none');
@@ -355,10 +358,10 @@ $xcrud->change_type('CO2','none');
 //$xcrud->change_type('comentarios','none');
 
 //seteo de botones
-//$xcrud->unset_add();
+$xcrud->unset_add();
 //$xcrud->unset_edit();
-//$xcrud->unset_remove();
-//$xcrud->unset_view();
+$xcrud->unset_remove();
+$xcrud->unset_view();
 //$xcrud->unset_csv();
 //$xcrud->unset_limitlist();
 //$xcrud->unset_numbers();
