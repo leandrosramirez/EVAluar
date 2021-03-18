@@ -4,7 +4,7 @@
 $xcrud = Xcrud::get_instance();
 $xcrud->table('gcp2021');
 $xcrud->language('es');
-$xcrud->table_name('Evaluación cuantitativa y cualitativa de Postulantes <a class="btn btn-primary" href="https://datossociales.com/evaluar/lib/uploads/Guia_para_equipo_evaluador_de_postulaciones_para_GCP_2021.pdf" target="_blank" ><i class="fa fa-file"></i>  Guia de Evaluación</a>');
+$xcrud->table_name('Evaluación cuantitativa y cualitativa de Postulantes <a class="btn btn-primary btn-sm" href="https://datossociales.com/evaluar/lib/uploads/Guia_para_equipo_evaluador_de_postulaciones_para_GCP_2021.pdf" target="_blank" ><i class="fa fa-file"></i>  Guia de Evaluación</a>');
 
 $xcrud->label('id','ID de respuesta');
 $xcrud->label('submitdate','Fecha de envío');
@@ -343,6 +343,19 @@ $xcrud->button('{co3}', 'Carta Aval','icon-file','',array('target'=>'_blank'));
 //inhabilitar edición de campos
 $xcrud->change_type('CO2','none');
 $xcrud->change_type('PA4','none');
+$xcrud->change_type('C37','none');
+$xcrud->change_type('C291','none');
+$xcrud->change_type('c32','none');
+$xcrud->change_type('DI1','none');
+$xcrud->change_type('DI2','none');
+$xcrud->change_type('DI3','none');
+$xcrud->change_type('DI4','none');
+$xcrud->change_type('PA2','none');
+$xcrud->change_type('PA3','none');
+$xcrud->change_type('P2','none');
+$xcrud->change_type('P3','none');
+$xcrud->change_type('P4','none');
+$xcrud->change_type('P5','none');
 
 
 //$xcrud->change_type('t1','none');

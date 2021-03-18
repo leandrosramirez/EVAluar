@@ -343,6 +343,19 @@ $xcrud->where("c35 = 'Participé' OR co3filecount = 0"); // Participé = Ya part
 //inhabilitar edición de campos
 $xcrud->change_type('CO2','none');
 $xcrud->change_type('PA4','none');
+$xcrud->change_type('C37','none');
+$xcrud->change_type('C291','none');
+$xcrud->change_type('c32','none');
+$xcrud->change_type('DI1','none');
+$xcrud->change_type('DI2','none');
+$xcrud->change_type('DI3','none');
+$xcrud->change_type('DI4','none');
+$xcrud->change_type('PA2','none');
+$xcrud->change_type('PA3','none');
+$xcrud->change_type('P2','none');
+$xcrud->change_type('P3','none');
+$xcrud->change_type('P4','none');
+$xcrud->change_type('P5','none');
 
 //seteo de botones
 $xcrud->unset_add();
