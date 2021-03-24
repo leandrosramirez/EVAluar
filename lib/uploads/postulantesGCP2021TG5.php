@@ -91,6 +91,7 @@ $xcrud->label('CO1','Confirmo que leí el programa del curso y acepto los requis
 $xcrud->label('PROVINCIA','PROVINCIA');
 $xcrud->label('DEPARTAMENTO','DEPARTAMENTO');
 $xcrud->label('LOCALIDAD','LOCALIDAD');
+$xcrud->label('id_region','Región');
 
 //preguntas de evaluación excluyentes
 $xcrud->label('preg01','¿Presentó aval institucional válido y vigente?');
@@ -110,7 +111,7 @@ $xcrud->label('evaluadoT','Evaluación Técnica');
 $xcrud->label('evaluadoF', 'Evaluación Final');
 
 //DATOS QUE SE MUESTRAN EN LA LISTA 
-$xcrud->columns('db1,db2,PROVINCIA,LOCALIDAD, evaluadoT, evaluadoF');
+$xcrud->columns('db1,db2,PROVINCIA,LOCALIDAD, id_region,evaluadoT, evaluadoF');
 
 
 //Ponderación preguntas evaluación cualitativa
@@ -212,6 +213,10 @@ $xcrud->disabled('LOCALIDAD');
 
 //$xcrud->fields('preg07,preg08,preg09,preg10,preg11,preg12', false, 'Evaluación Cualitativa');
 
+//regiones
+$xcrud->relation('id_region','_regiones','id_region','nombre');
+//$xcrud->relation('G1Q00008','_provincias','id_provincia','nombre');
+$xcrud->order_by('id_region','desc');
 
 // Suma de puntajes de Conexión //
 

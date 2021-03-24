@@ -108,9 +108,10 @@ $xcrud->label('preg11','¿Está participando de otros programas o propuestas for
 $xcrud->label('preg12','Comentarios');
 $xcrud->label('evaluadoT','Evaluación Técnica');
 $xcrud->label('evaluadoF', 'Evaluación Final');
+$xcrud->label('id_region','Región');
 
 //DATOS QUE SE MUESTRAN EN LA LISTA 
-$xcrud->columns('db1,db2,PROVINCIA,LOCALIDAD, evaluadoT, evaluadoF');
+$xcrud->columns('db1,db2,PROVINCIA,LOCALIDAD, id_region,evaluadoT, evaluadoF');
 
 
 //Ponderación preguntas evaluación cualitativa
@@ -209,8 +210,13 @@ $xcrud->disabled('DEPARTAMENTO');
 $xcrud->disabled('LOCALIDAD');
 
 
+
 //$xcrud->fields('preg07,preg08,preg09,preg10,preg11,preg12', false, 'Evaluación Cualitativa');
 
+//regiones
+$xcrud->relation('id_region','_regiones','id_region','nombre');
+//$xcrud->relation('G1Q00008','_provincias','id_provincia','nombre');
+$xcrud->order_by('id_region','desc');
 
 // Suma de puntajes de Conexión //
 
