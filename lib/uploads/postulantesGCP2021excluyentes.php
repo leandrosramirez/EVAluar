@@ -108,9 +108,10 @@ $xcrud->label('preg09','¿Qué nivel de estudios completos ha alcanzado el/la po
 $xcrud->label('preg10','¿Con qué nivel de conectividad cuenta el/la participante para cumplir con las actividades y demandas del curso?');
 $xcrud->label('preg11','¿Está participando de otros programas o propuestas formativas actualmente?');
 $xcrud->label('preg12','comentarios');
+$xcrud->label('id_region','Región');
 
 //DATOS QUE SE MUESTRAN EN LA LISTA 
-$xcrud->columns('db1,db2,PROVINCIA,LOCALIDAD,c33,co3filecount,evaluadoT, evaluadoF');
+$xcrud->columns('db1,db2,PROVINCIA,LOCALIDAD,c33,co3filecount,id_region,evaluadoT, evaluadoF');
 
 //Ponderación preguntas evaluación cualitativa
 $xcrud->change_type('preg08','select','',',1,2,3,4,5');
@@ -202,6 +203,13 @@ $xcrud->disabled('PROVINCIA');
 $xcrud->disabled('DEPARTAMENTO');
 $xcrud->disabled('LOCALIDAD');
 $xcrud->disabled('Grupo');
+
+
+
+//regiones
+$xcrud->relation('id_region','_regiones','id_region','nombre');
+//$xcrud->relation('G1Q00008','_provincias','id_provincia','nombre');
+$xcrud->order_by('id_region','desc');
 
 
 //excluyentes de la evaluación

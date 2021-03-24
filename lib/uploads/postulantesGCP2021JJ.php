@@ -100,34 +100,40 @@ $xcrud->label('preg04','¿Presentó CV completo y actualizado? ');
 $xcrud->label('preg05','¿Trabaja actualmente en una institución cultural pública identificable? ');
 $xcrud->label('preg06','¿Participó en ed. previas de GCP? ');
 //preguntas de evaluación cualitativas
+$xcrud->label('evaluadoT','Evaluación Técnica');
+$xcrud->label('evaluadoF', 'Evaluación Final');
+$xcrud->label('puntaje','Puntaje');
+$xcrud->label('institucion','Institución');
 $xcrud->label('preg07','¿Con cuánta antigüedad en la institución cuenta el/la postulante?');
 $xcrud->label('preg08','¿Con cuánta experiencia profesional cuenta el/la postulante?');
 $xcrud->label('preg09','¿Qué nivel de estudios completos ha alcanzado el/la postulante?');
 $xcrud->label('preg10','¿Con qué nivel de conectividad cuenta el/la participante para cumplir con las actividades y demandas del curso?');
 $xcrud->label('preg11','¿Está participando de otros programas o propuestas formativas actualmente?');
 $xcrud->label('preg12','Comentarios');
-$xcrud->label('evaluadoT','Evaluación Técnica');
-$xcrud->label('evaluadoF', 'Evaluación Final');
 $xcrud->label('Grupo', 'Grupo');
+$xcrud->label('id_region','Región');
 
 //DATOS QUE SE MUESTRAN EN LA LISTA 
-$xcrud->columns('db1,db2,PROVINCIA,LOCALIDAD, evaluadoT, evaluadoF, Grupo');
-
+$xcrud->columns('db1,db2,PROVINCIA,LOCALIDAD, evaluadoT, evaluadoF, Personas/Institucion, institucion, id_region, puntaje');
 
 //Ponderación preguntas evaluación cualitativa
 $xcrud->change_type('preg08','select','',',1,2,3,4,5');
+$xcrud->change_type('evaluadoF','select','',',SI,NO,A REVISAR,SUPLENTE');
 
 //Solapas del legajo 
 
 $xcrud->fields('db1,db2,db3,db9,db10,db11,db12,db13,db14,db15,db16,db23a1,db7,C24,C25,C25other,C251,C26,C27,C29,C291,c30,c30other,c32,c33,c34,C36,C37,PA1,PA2,PA3,PA4,DI2,DI3,DI4,DI5,DI7,P1,P1other,CO2,co3filecount,CO1,PROVINCIA,DEPARTAMENTO,LOCALIDAD, Grupo', false, 'Perfil del postulante');
 $xcrud->fields('preg01,preg02,preg03,preg05', false, 'Requisitos excluyentes');
-$xcrud->fields('preg08,CO2,preg04,preg12,evaluadoT, evaluadoF', false, 'Evaluación Cualitativa');
+$xcrud->fields('evaluadoT, evaluadoF, puntaje, institucion, Personas/Institucion, preg08,CO2,preg04,preg12', false, 'Evaluación Cualitativa');
 
 // tooltips cualitativa //
 $xcrud->field_tooltip('preg08','Ver Guía de Evaluación');
 $xcrud->field_tooltip('preg12','Destacar información crítica para evaluar la postulación');
 
-
+//regiones
+$xcrud->relation('id_region','_regiones','id_region','nombre');
+//$xcrud->relation('G1Q00008','_provincias','id_provincia','nombre');
+$xcrud->order_by('id_region','desc');
 
 
 
@@ -217,21 +223,34 @@ $xcrud->disabled('preg05');
 $xcrud->disabled('preg08');
 $xcrud->disabled('preg04');
 $xcrud->disabled('preg12');
+$xcrud->disabled('institucion');
 
 
 // Suma de puntajes de Conexión //
 
-//$xcrud->subselect('Puntaje','{conexion30}+{conexion31}+{conexion32SQ001}+{conexion32SQ002}+{conexion32SQ003}+{conexion33SQ001}+{conexion33SQ002}+{conexion33SQ003}+{conexion33SQ004}');
+//preg07+preg08+preg09+preg11+preg12+db22+db23
+$xcrud->subselect('puntaje','{conexion30}+{conexion31}+{conexion32SQ001}+{conexion32SQ002}+{conexion32SQ003}+{conexion33SQ001}+{conexion33SQ002}+{conexion33SQ003}+{conexion33SQ004}+{preg07}+{preg08}+{preg09}+{preg11}+{db22}+{db23}');
+//preg07+preg08+preg09+preg11+preg12+db22+db23
+//$xcrud->subselect('institucionPunto','{institucion}');
+
+//$xcrud->subselect('contarInstitucion','{}');
+
 
 
 //campos coloreados
 $xcrud->highlight_row('evaluadoT', '=', "1", '#EEFFB6'); // highlight_row resalta con color la fila en la cuadricula
-$xcrud->highlight_row('evaluadoF', '=', "1", '#CBFF22'); // highlight_row resalta con color la fila en la cuadricula
+//$xcrud->highlight_row('evaluadoF', '=', "1", '#CBFF22'); // highlight_row resalta con color la fila en la cuadricula
 //$xcrud->highlight_row('co3filecount', '=', 0, '#d1403e'); // 
+$xcrud->highlight_row('evaluadoF', '=', 'SI', '#CBFF22');
+$xcrud->highlight_row('evaluadoF', '=', 'NO', '#FF9191');
+$xcrud->highlight_row('evaluadoF', '=', 'SUPLENTE', '#FFFF91');
+$xcrud->highlight_row('evaluadoF', '=', 'A REVISAR', '#FFD3B5');
 
 //$xcrud->disabled('evaluacion_final_evaluador1');
+//$xcrud->subselect('','SELECT COUNT(*) FROM gcp2021 WHERE institucion = {institucion}','status'); 
 
-//$xcrud->subselect('Postulación Final','SELECT COUNT(*) FROM orderdetails WHERE orderNumber = {orderNumber}','status'); 
+$xcrud->subselect('Personas/Institucion','SELECT COUNT(*) FROM gcp2021 g WHERE g.institucion = {institucion} ');
+
 
 //desplegar lista de selección (valores) para el campo evaluación_final
 //$xcrud->change_type('evaluacion_final_evaluador1','select','',',SI,NO,A REVISAR');

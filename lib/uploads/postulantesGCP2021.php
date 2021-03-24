@@ -109,9 +109,10 @@ $xcrud->label('preg12','Comentarios');
 $xcrud->label('evaluadoT','Evaluación Técnica');
 $xcrud->label('evaluadoF', 'Evaluación Final');
 $xcrud->label('Grupo', 'Grupo');
+$xcrud->label('id_region', 'Región');
 
 //DATOS QUE SE MUESTRAN EN LA LISTA 
-$xcrud->columns('db1,db2,PROVINCIA,LOCALIDAD, evaluadoT, evaluadoF, Grupo');
+$xcrud->columns('db1,db2,PROVINCIA,LOCALIDAD, evaluadoT, evaluadoF, id_region, Grupo');
 
 
 //Ponderación preguntas evaluación cualitativa
@@ -213,6 +214,11 @@ $xcrud->disabled('Grupo');
 
 //$xcrud->fields('preg07,preg08,preg09,preg10,preg11,preg12', false, 'Evaluación Cualitativa');
 
+//regiones
+$xcrud->relation('id_region','_regiones','id_region','nombre');
+//$xcrud->relation('G1Q00008','_provincias','id_provincia','nombre');
+$xcrud->order_by('id_region','desc');
+
 
 // Suma de puntajes de Conexión //
 
@@ -302,6 +308,11 @@ $xcrud->button('{co3}', 'Carta Aval','icon-file','',array('target'=>'_blank'));
 //$xcrud->where("content.catid = 5 AND content.created > '{$last_visit}'");
 
 //$xcrud->where("gcp2021.c33 = 'No' AND gcp2021.c35 = 'Me postulé pero no obtuve una vacante' ");
+
+//regiones
+$xcrud->relation('id_region','_regiones','id_region','nombre');
+//$xcrud->relation('G1Q00008','_provincias','id_provincia','nombre');
+$xcrud->order_by('id_region','desc');
 
 
 //$xcrud->where('c33 =', "No"); // Sí = Ya participó de GCP
