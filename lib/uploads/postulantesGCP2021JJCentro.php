@@ -15,8 +15,8 @@ $xcrud->label('startdate','Fecha de inicio');
 $xcrud->label('datestamp','Fecha de la última acción');
 $xcrud->label('ipaddr','Dirección IP');
 $xcrud->label('refurl','URL de referencia');
-$xcrud->label('db1','Nombre:');
-$xcrud->label('db2','Apellido:');
+$xcrud->label('db1','Nombre');
+$xcrud->label('db2','Apellido');
 $xcrud->label('db3','Tu nacionalidad es:');
 $xcrud->label('db3a1','Seleccioná tu continente de residencia');
 $xcrud->label('db312','Seleccioná tu país de residencia en América');
@@ -24,7 +24,7 @@ $xcrud->label('db315','Seleccioná tu país de residencia en África');
 $xcrud->label('db314','Seleccioná tu país de residencia en Asia');
 $xcrud->label('db313','Seleccioná tu país de residencia en Europa');
 $xcrud->label('db316','Seleccioná tu país de residencia en Oceanía');
-$xcrud->label('db9','¿Cuál es tu identidad de género?');
+$xcrud->label('db9','Género');
 $xcrud->label('db9other','¿Cuál es tu identidad de género? Otro');
 $xcrud->label('db10','¿Cuál es tu fecha de nacimiento?');
 $xcrud->label('db11','Escribí tu DNI');
@@ -71,9 +71,9 @@ $xcrud->label('conexion33SQ004','Por favor elegí a continuación los dispositiv
 $xcrud->label('conexion34','¿Tenés un lugar donde trabajar con concentración durante la semana en contenidos del ciclo?');
 $xcrud->label('conexion35','¿Tu dispositivo tiene cámara web? (no excluyente)');
 $xcrud->label('conexion36','¿Tu dispositivo tiene micrófono? (no excluyente)');
-$xcrud->label('DI1','Escribí el nombre de la institución en la que trabajas (nombre completo)');
+$xcrud->label('DI1','Institución');
 $xcrud->label('DI2','Escribí el área de la institución en la que te desempeñas actualmente');
-$xcrud->label('DI3','Escribí el cargo o rol que desempeñas en la actualidad');
+$xcrud->label('DI3','Cargo actual');
 $xcrud->label('DI4','Escribí el sitio web de la institución');
 $xcrud->label('DI5','Escribí el correo electrónico de la institución:');
 $xcrud->label('DI6','¿Qué antigüedad tenés en esta institución?');
@@ -88,9 +88,9 @@ $xcrud->label('CO2','Curriculum Vitae');
 //$xcrud->label('co3','En esta sección tenés que adjuntar una nota del referente o autoridad de tu institución de pertenencia (por lo menos, de un cargo superior al tuyo). Esta carta deberá avalarte como postulante al curso, corroborar que actualmente te desempeñás en la institución (explicitar tu cargo, rol o funciones actuales) y dar certeza de que vas a poder cumplir con las actividades y/o compromisos del curso que coincidan con tu horario laboral. Existe un modelo de nota aval en caso de que la necesites, podés encontrarla en la web de la convocatoria o solicitándola por email a gcp@cultura.gob.ar. Si no adjunta este documento específico quedará fuera de la postulación automaticamente.');
 $xcrud->label('co3filecount','¿Carta Aval?');
 $xcrud->label('CO1','Confirmo que leí el programa del curso y acepto los requisitos de participación y aprobación. Podés consultar el marco de la convocatoria y las condiciones de participación del curso de Formación en Gestión Cultural Pública en modalidad a distancia en la página web: www.cultura.gob.ar .');
-$xcrud->label('PROVINCIA','PROVINCIA');
-$xcrud->label('DEPARTAMENTO','DEPARTAMENTO');
-$xcrud->label('LOCALIDAD','LOCALIDAD');
+$xcrud->label('PROVINCIA','Provincia');
+$xcrud->label('DEPARTAMENTO','Departamento');
+$xcrud->label('LOCALIDAD','Localidad');
 
 //preguntas de evaluación excluyentes
 $xcrud->label('preg01','¿Presentó aval institucional válido y vigente?');
@@ -100,10 +100,10 @@ $xcrud->label('preg04','¿Presentó CV completo y actualizado? ');
 $xcrud->label('preg05','¿Trabaja actualmente en una institución cultural pública identificable? ');
 $xcrud->label('preg06','¿Participó en ed. previas de GCP? ');
 //preguntas de evaluación cualitativas
-$xcrud->label('evaluadoT','Evaluación Técnica');
-$xcrud->label('evaluadoF', 'Evaluación Final');
+$xcrud->label('evaluadoT','Ev. Téc.');
+$xcrud->label('evaluadoF', 'Ev. Final');
 $xcrud->label('puntaje','Puntaje');
-$xcrud->label('institucion','Institución');
+//$xcrud->label('institucion','Institución');
 $xcrud->label('preg07','¿Con cuánta antigüedad en la institución cuenta el/la postulante?');
 $xcrud->label('preg08','¿Con cuánta experiencia profesional cuenta el/la postulante?');
 $xcrud->label('preg09','¿Qué nivel de estudios completos ha alcanzado el/la postulante?');
@@ -114,7 +114,7 @@ $xcrud->label('Grupo', 'Grupo');
 $xcrud->label('id_region','Región');
 
 //DATOS QUE SE MUESTRAN EN LA LISTA 
-$xcrud->columns('db1,db2,PROVINCIA,LOCALIDAD, evaluadoT, evaluadoF, Personas/Institucion, institucion, id_region, puntaje');
+$xcrud->columns('db1,db2,PROVINCIA,LOCALIDAD,db9, DI1, DI3, preg12, evaluadoT, evaluadoF, id_region, puntaje');
 
 //Ponderación preguntas evaluación cualitativa
 $xcrud->change_type('preg08','select','',',1,2,3,4,5');
@@ -124,7 +124,7 @@ $xcrud->change_type('evaluadoF','select','',',SI,NO,A REVISAR,SUPLENTE');
 
 $xcrud->fields('db1,db2,db3,db9,db10,db11,db12,db13,db14,db15,db16,db23a1,db7,C24,C25,C25other,C251,C26,C27,C29,C291,c30,c30other,c32,c33,c34,C36,C37,PA1,PA2,PA3,PA4,DI2,DI3,DI4,DI5,DI7,P1,P1other,CO2,co3filecount,CO1,PROVINCIA,DEPARTAMENTO,LOCALIDAD, Grupo', false, 'Perfil del postulante');
 $xcrud->fields('preg01,preg02,preg03,preg05', false, 'Requisitos excluyentes');
-$xcrud->fields('evaluadoT, evaluadoF, puntaje, institucion, Personas/Institucion, preg08,CO2,preg04,preg12', false, 'Evaluación Cualitativa');
+$xcrud->fields('evaluadoF, CO2,  preg12, P2, P3, P4, preg08, puntaje, DI1, preg04, evaluadoT', false, 'Evaluación Cualitativa');
 
 // tooltips cualitativa //
 $xcrud->field_tooltip('preg08','Ver Guía de Evaluación');
@@ -134,6 +134,9 @@ $xcrud->field_tooltip('preg12','Destacar información crítica para evaluar la p
 $xcrud->relation('id_region','_regiones','id_region','nombre');
 //$xcrud->relation('G1Q00008','_provincias','id_provincia','nombre');
 $xcrud->order_by('id_region','desc');
+$xcrud->order_by('puntaje','desc');
+//$xcrud->order_by('PROVINCIA','desc');
+
 
 
 
@@ -223,7 +226,7 @@ $xcrud->disabled('preg05');
 $xcrud->disabled('preg08');
 $xcrud->disabled('preg04');
 $xcrud->disabled('preg12');
-$xcrud->disabled('institucion');
+//$xcrud->disabled('institucion');
 
 
 // Suma de puntajes de Conexión //
@@ -249,7 +252,7 @@ $xcrud->highlight_row('evaluadoF', '=', 'A REVISAR', '#FFD3B5');
 //$xcrud->disabled('evaluacion_final_evaluador1');
 //$xcrud->subselect('','SELECT COUNT(*) FROM gcp2021 WHERE institucion = {institucion}','status'); 
 
-$xcrud->subselect('Personas/Institucion','SELECT COUNT(*) FROM gcp2021 g WHERE g.institucion = {institucion} ');
+//$xcrud->subselect('Personas/Institucion','SELECT COUNT(*) FROM gcp2021 g WHERE g.institucion = {institucion} ');
 
 
 //desplegar lista de selección (valores) para el campo evaluación_final
@@ -319,6 +322,7 @@ $xcrud->subselect('Personas/Institucion','SELECT COUNT(*) FROM gcp2021 g WHERE g
 
 
 $xcrud->where("( c35 = 'Me postulé pero no obtuve una vacante' AND co3filecount = 1 ) OR ( co3filecount = 1 AND c33 = 'No' ) "); // Me postulé pero no obtuve una vacante = Ya participo de GCP pero no curso / ( 1 = Subio carta aval Y  c33=No - No curso GCP)
+$xcrud->where("( id_region=3)");
 
 //boton carta aval
 $xcrud->button('{co3}', 'Carta Aval','icon-file','',array('target'=>'_blank'));
