@@ -1,20 +1,33 @@
 <?php 
 
-
 //REGIONES//////////////////////////////////////////////
 $regiones = Xcrud::get_instance();
 $regiones->table('_regiones');
 $regiones->language('es');
 $regiones->table_name(' '); //Muestro la tabla sin el título
 //COLUMNAS QUE SE MUESTRAN
-$regiones->columns('nombre,Evaluaciones técnicas,Postulaciones presentadas');
-
+$regiones->columns('nombre, Postulaciones p/ evaluar, Postulaciones excluyentes, Postulaciones totales, Evaluaciones Técnicas, Seleccionadxs');
+$regiones->label('nombre','Región');
 
 //Contar cuantos postulantes por provincia están evaluados técnicamente
-$regiones->subselect('Evaluaciones técnicas','SELECT COUNT(*) FROM gcp2021 WHERE id_region = {id_region} AND evaluadoT = 1'); // consulta sql sobre el total de confirmados por región
+$regiones->subselect('Evaluaciones Técnicas','SELECT COUNT(*) FROM gcp2021 WHERE id_region = {id_region} AND evaluadoT = 1'); // consulta sql sobre el total de Ev. Técnicas realizadas
+
+//Contar cuantos postulantes por provincia se excluyeron
+$regiones->subselect('Postulaciones excluyentes','SELECT COUNT(*) FROM gcp2021 WHERE id_region = {id_region} AND (c35 = "Participé" OR co3filecount = 0) '); // consulta sql sobre el total de confirmados por región
 
 //Contar cuantos postulantes por provincia
-$regiones->subselect('Postulaciones presentadas','SELECT COUNT(*) FROM gcp2021 WHERE id_region = {id_region} AND CO1 = "Confirmar"'); // consulta sql sobre el total de confirmados por región
+$regiones->subselect('Postulaciones p/ evaluar','SELECT COUNT(*) FROM gcp2021 WHERE id_region = {id_region} AND ( ( c35 = "Me postulé pero no obtuve una vacante" AND co3filecount = 1 ) OR ( co3filecount = 1 AND c33 = "No" ) )  '); // consulta sql sobre el total de confirmados por región
+
+//Contar cuantos postulantes por provincia
+$regiones->subselect('Postulaciones totales','SELECT COUNT(*) FROM gcp2021 WHERE id_region = {id_region} AND CO1 = "Confirmar" '); // consulta sql sobre el total de confirmados por región
+
+//Contar cuantos postulantes por provincia están evaluados técnicamente
+$regiones->subselect('Seleccionadxs','SELECT COUNT(*) FROM gcp2021 WHERE id_region = {id_region} AND evaluadoF = "SI" '); // consulta sql sobre el total de Ev. Finales realizadas
+
+
+
+
+
 
 //Ordenar por nombre alfabeito la columna nombre
 $regiones->order_by('nombre');
@@ -36,11 +49,17 @@ $regiones->unset_sortable();
 $regiones->limit(25);
 
 //alinear datos
-$regiones->column_class('Evaluaciones técnicas', 'align-center');
-$regiones->column_class('Postulaciones presentadas', 'align-center');
+$regiones->column_class('Evaluaciones Técnicas', 'align-center');
+$regiones->column_class('Postulaciones p/ evaluar', 'align-center');
+$regiones->column_class('Postulaciones excluyentes', 'align-center');
+$regiones->column_class('Postulaciones totales', 'align-center');
+$regiones->column_class('Seleccionadxs', 'align-center');
 //sumar cantidades de columnas
-$regiones->sum('Evaluaciones técnicas');
-$regiones->sum('Postulaciones presentadas');
+$regiones->sum('Evaluaciones Técnicas');
+$regiones->sum('Postulaciones p/ evaluar');
+$regiones->sum('Postulaciones excluyentes');
+$regiones->sum('Postulaciones totales');
+$regiones->sum('Seleccionadxs');
 
 
 
@@ -51,11 +70,12 @@ $noa->table('_provincias');
 $noa->language('es');
 $noa->table_name(' ');//muestro la tabla sin el título
 //COLUMNAS QUE SE MUESTRAN
-$noa->columns('nombre,Evaluaciones técnicas');
-
+$noa->columns('nombre,Evaluaciones técnicas, Seleccionadxs');
+$noa->label('nombre', 'Provincia');
 
 //Contar cuantos postulantes por provincia están evaluados técnicamente
 $noa->subselect('Evaluaciones técnicas','SELECT COUNT(*) FROM gcp2021 WHERE id_provincia = {id_provincia} AND evaluadoT = 1 AND region = 1'); // consulta sql sobre el total de confirmados por región
+$noa->subselect('Seleccionadxs','SELECT COUNT(*) FROM gcp2021 WHERE id_provincia = {id_provincia} AND evaluadoF = "SI" '); // consulta sql sobre el total de Ev. Finales realizadas
 
 $noa->where('region =', "1");//Filtra la región NEA
 
@@ -80,8 +100,10 @@ $noa->limit(25);
 
 //alinear datos
 $noa->column_class('Evaluaciones técnicas', 'align-center');
+$noa->column_class('Seleccionadxs', 'align-center');
 //sumar cantidades de columnas
 $noa->sum('Evaluaciones técnicas');
+$noa->sum('Seleccionadxs');
 
 
 //REGION NEA //////////////////////////////////////////////
@@ -90,11 +112,12 @@ $nea->table('_provincias');
 $nea->language('es');
 $nea->table_name(' '); //mUESTRO LA TABLA SIN EL TÍTULO
 //COLUMNAS QUE SE MUESTRAN
-$nea->columns('nombre,Evaluaciones técnicas');
-
+$nea->columns('nombre,Evaluaciones técnicas, Seleccionadxs');
+$nea->label('nombre', 'Provincia');
 
 //Contar cuantos postulantes por provincia están evaluados técnicamente
 $nea->subselect('Evaluaciones técnicas','SELECT COUNT(*) FROM gcp2021 WHERE id_provincia = {id_provincia} AND evaluadoT = 1 AND region = 2'); // consulta sql sobre el total de confirmados por región
+$nea->subselect('Seleccionadxs','SELECT COUNT(*) FROM gcp2021 WHERE id_provincia = {id_provincia} AND evaluadoF = "SI" '); // consulta sql sobre el total de Ev. Finales realizadas
 
 $nea->where('region =', "2");//Filtra la región NEA
 
@@ -119,9 +142,10 @@ $nea->limit(25);
 
 //alinear datos
 $nea->column_class('Evaluaciones técnicas', 'align-center');
+$nea->column_class('Seleccionadxs', 'align-center');
 //sumar cantidades de columnas
 $nea->sum('Evaluaciones técnicas');
-
+$nea->sum('Seleccionadxs');
 
 //REGION CUYO //////////////////////////////////////////////
 $cuyo = Xcrud::get_instance();
@@ -129,11 +153,12 @@ $cuyo->table('_provincias');
 $cuyo->language('es'); //Muestro la tabla sin el título
 $cuyo->table_name(' ');
 //COLUMNAS QUE SE MUESTRAN
-$cuyo->columns('nombre,Evaluaciones técnicas');
-
+$cuyo->columns('nombre,Evaluaciones técnicas, Seleccionadxs');
+$cuyo->label('nombre', 'Provincia');
 
 //Contar cuantos postulantes por provincia están evaluados técnicamente
 $cuyo->subselect('Evaluaciones técnicas','SELECT COUNT(*) FROM gcp2021 WHERE id_provincia = {id_provincia} AND evaluadoT = 1 AND region = 6'); // consulta sql sobre el total de confirmados por región
+$cuyo->subselect('Seleccionadxs','SELECT COUNT(*) FROM gcp2021 WHERE id_provincia = {id_provincia} AND evaluadoF = "SI" '); // consulta sql sobre el total de Ev. Finales realizadas
 
 $cuyo->where('region =', "6");//Filtra la región cuyo
 
@@ -158,8 +183,10 @@ $cuyo->limit(25);
 
 //alicuyor datos
 $cuyo->column_class('Evaluaciones técnicas', 'align-center');
+$cuyo->column_class('Seleccionadxs', 'align-center');
 //sumar cantidades de columnas
 $cuyo->sum('Evaluaciones técnicas');
+$cuyo->sum('Seleccionadxs');
 
 
 //REGION centro //////////////////////////////////////////////
@@ -168,11 +195,12 @@ $centro->table('_provincias');
 $centro->language('es');
 $centro->table_name(' '); //Muestro la tabla sin el título
 //COLUMNAS QUE SE MUESTRAN
-$centro->columns('nombre,Evaluaciones técnicas');
-
+$centro->columns('nombre,Evaluaciones técnicas, Seleccionadxs');
+$centro->label('nombre', 'Provincia');
 
 //Contar cuantos postulantes por provincia están evaluados técnicamente
 $centro->subselect('Evaluaciones técnicas','SELECT COUNT(*) FROM gcp2021 WHERE id_provincia = {id_provincia} AND evaluadoT = 1 AND region = 3'); // consulta sql sobre el total de confirmados por región
+$centro->subselect('Seleccionadxs','SELECT COUNT(*) FROM gcp2021 WHERE id_provincia = {id_provincia} AND evaluadoF = "SI" '); // consulta sql sobre el total de Ev. Finales realizadas
 
 $centro->where('region =', "3");//Filtra la región centro
 
@@ -197,8 +225,10 @@ $centro->limit(25);
 
 //alicentror datos
 $centro->column_class('Evaluaciones técnicas', 'align-center');
+$centro->column_class('Seleccionadxs','align-center');
 //sumar cantidades de columnas
 $centro->sum('Evaluaciones técnicas');
+$centro->sum('Seleccionadxs');
 
 
 //REGION patagonia //////////////////////////////////////////////
@@ -207,12 +237,12 @@ $patagonia->table('_provincias');
 $patagonia->language('es');
 $patagonia->table_name(' ');//muestro la tabla sin el título
 //COLUMNAS QUE SE MUESTRAN
-$patagonia->columns('nombre,Evaluaciones técnicas');
+$patagonia->columns('nombre,Evaluaciones técnicas, Seleccionadxs');
 
-
+$patagonia->label('nombre', 'Provincia');
 //Contar cuantos postulantes por provincia están evaluados técnicamente
 $patagonia->subselect('Evaluaciones técnicas','SELECT COUNT(*) FROM gcp2021 WHERE id_provincia = {id_provincia} AND evaluadoT = 1 AND region = 5'); // consulta sql sobre el total de confirmados por región
-
+$patagonia->subselect('Seleccionadxs','SELECT COUNT(*) FROM gcp2021 WHERE id_provincia = {id_provincia} AND evaluadoF = "SI" '); // consulta sql sobre el total de Ev. Finales realizadas
 $patagonia->where('region =', "5");//Filtra la región patagonia
 
 //Ordenar por nombre alfabeito la columna nombre
@@ -236,8 +266,10 @@ $patagonia->limit(25);
 
 //alipatagoniar datos
 $patagonia->column_class('Evaluaciones técnicas', 'align-center');
+$patagonia->column_class('Seleccionadxs', 'align-center');
 //sumar cantidades de columnas
 $patagonia->sum('Evaluaciones técnicas');
+$patagonia->sum('Seleccionadxs');
 
 
 //REGION baires //////////////////////////////////////////////
@@ -246,11 +278,13 @@ $baires->table('_provincias');
 $baires->language('es');
 $baires->table_name(' '); //Muestro la tabla sin el título
 //COLUMNAS QUE SE MUESTRAN
-$baires->columns('nombre,Evaluaciones técnicas');
+$baires->columns('nombre,Evaluaciones técnicas, Seleccionadxs');
+$baires->label('nombre', 'Provincia');
 
 
 //Contar cuantos postulantes por provincia están evaluados técnicamente
 $baires->subselect('Evaluaciones técnicas','SELECT COUNT(*) FROM gcp2021 WHERE id_provincia = {id_provincia} AND evaluadoT = 1 AND region = 4'); // consulta sql sobre el total de confirmados por región
+$baires->subselect('Seleccionadxs','SELECT COUNT(*) FROM gcp2021 WHERE id_provincia = {id_provincia} AND evaluadoF = "SI" '); // consulta sql sobre el total de Ev. Finales realizadas
 
 $baires->where('region =', "4");//Filtra la región baires
 
@@ -275,8 +309,10 @@ $baires->limit(25);
 
 //alibairesr datos
 $baires->column_class('Evaluaciones técnicas', 'align-center');
+$baires->column_class('Seleccionadxs', 'align-center');
 //sumar cantidades de columnas
 $baires->sum('Evaluaciones técnicas');
+$baires->sum('Seleccionadxs');
 
 
 ?>
@@ -335,7 +371,7 @@ $baires->sum('Evaluaciones técnicas');
               </div>
               <div class="card-body">
                 <div class="chart">
-                  <canvas id="barChart" style="min-height: 350px; height: 350px; max-height: 350px; max-width: 100%;"></canvas>
+                  <!-- <canvas id="barChart" style="min-height: 350px; height: 350px; max-height: 350px; max-width: 100%;"></canvas> -->
                   <?php echo $regiones->render(); ?>
                 </div>
               </div>
@@ -360,7 +396,7 @@ $baires->sum('Evaluaciones técnicas');
               </div>
               <div class="card-body">
                 <div class="chart">
-                  <canvas id="donutChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                  <!--<canvas id="donutChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>-->
                   <?php echo $noa->render(); ?>
                 </div>
               </div>
@@ -385,7 +421,7 @@ $baires->sum('Evaluaciones técnicas');
               </div>
               <div class="card-body">
                 <div class="chart">
-                  <canvas id="graficoDonaP" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                  <!--<canvas id="graficoDonaP" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>-->
                   <?php echo $patagonia->render(); ?>
                 </div>
               </div>
@@ -410,7 +446,7 @@ $baires->sum('Evaluaciones técnicas');
               </div>
               <div class="card-body">
                 <div class="chart">
-                  <canvas id="graficoDonaC" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                  <!--<canvas id="graficoDonaC" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>-->
                   <?php echo $centro->render(); ?>
                 </div>
               </div>
@@ -435,7 +471,7 @@ $baires->sum('Evaluaciones técnicas');
               </div>
               <div class="card-body">
                 <div class="chart">
-                  <canvas id="graficoDonaCu" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                  <!--<canvas id="graficoDonaCu" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>-->
                   <?php  echo $cuyo->render(); ?>
                 </div>
               </div>
@@ -462,7 +498,7 @@ $baires->sum('Evaluaciones técnicas');
               </div>
               <div class="card-body">
                 <div class="chart">
-                  <canvas id="graficoDonaBaires" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                  <!--<canvas id="graficoDonaBaires" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>-->
                   <?php echo $baires->render(); ?>
                 </div>
               </div>
@@ -487,7 +523,7 @@ $baires->sum('Evaluaciones técnicas');
               </div>
               <div class="card-body">
                 <div class="chart">
-                  <canvas id="graficoDonaN" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                  <!--<canvas id="graficoDonaN" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>-->
                   <?php echo $nea->render(); ?>
                 </div>
               </div>
