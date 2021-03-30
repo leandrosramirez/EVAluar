@@ -94,7 +94,7 @@ class Xcrud_config
     public static $lists_null_opt = true; // display null(empty) option in all dropdowns and multiselects
     public static $enum_as_radio = false; // shows ENUM field as radiobox, dropdown by default
     public static $set_as_checkboxes = false; // shows SET field as checkboxes, multiselect by default
-    public static $upload_folder_def = '../../pages'; // Default uploads folder on your site, relative to xCRUD folder or absolute path required. Folder is must exist.
+    public static $upload_folder_def = '../uploads'; // Default uploads folder on your site, relative to xCRUD folder or absolute path required. Folder is must exist.
     public static $not_null_is_required = false; // makes not null fields required
     
     // features
