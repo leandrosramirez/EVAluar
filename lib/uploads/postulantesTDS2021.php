@@ -80,7 +80,6 @@ $xcrud->label('co6SQ003','Teéfono Responsable');
 $xcrud->label('co6SQ004','Email responsable');
 $xcrud->label('co3','Carta Aval url');
 $xcrud->label('puntaje', 'Puntaje');
-$xcrud->label('evaluadoT', 'Ev. Técnica');
 $xcrud->label('evaluadoF', 'Ev. Final');
 $xcrud->label('col9_e','Puntos por trayectoria');
 $xcrud->label('col10_e','Puntos por trayectoria y objetivos de organización');
@@ -101,11 +100,14 @@ $xcrud->label('pls2other_e','Puntos por impacto de los objetivos Otro');
 $xcrud->label('co3filecount','Presento Carta Aval');
 $xcrud->label('pls3_e','Puntos por impacto esperado al finalizar el curso');
 $xcrud->label('id_region','Región');
+$xcrud->label('evaluador','Evaluador/a');
+$xcrud->label('conclusion','Conclusión');
+$xcrud->label('observacion','Observaciones');
 
 
 
 //DATOS QUE SE MUESTRAN EN LA LISTA 
-$xcrud->columns('db1,db2,PROVINCIA,LOCALIDAD,id_region,Puntaje Final,evaluadoT,evaluadoF');
+$xcrud->columns('db1,db2,PROVINCIA,LOCALIDAD,id_region,conclusion,Puntaje Final,evaluadoF');
 
 
 //Ponderación preguntas evaluación cualitativa
@@ -118,7 +120,7 @@ col2,col5,col7,cod8,col9,col12,col13,col15,pc1,pc2,pls1SQ001,pls1SQ002,pls1SQ003
 
 $xcrud->fields('col9_e,col12_e,pls1SQ001_e,pls1SQ002_e,pls1SQ003_e,pls1SQ004_e,pls2SQ001_e,pls2SQ002_e,pls2SQ003_e,pc1_e,pc2_e', false, 'Evaluación Cuantitativa');
 
-$xcrud->fields('col10, col10_e, col11, col11_e, col14,col14_e, pls1other,pls1other_e, pls2other, pls2other_e, pls3, pls3_e , Puntaje Final, evaluadoT', false, 'Evaluación Cualitativa');
+$xcrud->fields('col10, col10_e, col11, col11_e, col14,col14_e, pls1other,pls1other_e, pls2other, pls2other_e, pls3, pls3_e , evaluador, conclusion, observacion, Puntaje Final', false, 'Evaluación Cualitativa');
 
 //Puntaje ponderado seleccion de valores
 
@@ -129,6 +131,8 @@ $xcrud->change_type('col14_e','select','',',0,2,5');
 $xcrud->change_type('pls1other_e','select','',',0,3,5,7');
 $xcrud->change_type('pls2other_e','select','',',0,3,5,7');
 $xcrud->change_type('pls3_e','select','',',0,5,10,15');
+$xcrud->change_type('conclusion','select','',',No recomendado,Recomendado,Muy recomendado');
+$xcrud->change_type('evaluador','select','',',Pablo di Salvatore,Rosario Lucesole, Lautaro Aguirre, Paula Bruno, Facundo Silvente, Marina Navarro, Diego Amorin, Natalia Filacanavo');
 
 
 
@@ -312,13 +316,17 @@ $xcrud->change_type('pls1other','none');
 $xcrud->change_type('pls2other','none');
 
 //campos coloreados
-$xcrud->highlight_row('evaluadoT', '=', "1", '#EEFFB6'); // highlight_row resalta con color la fila en la cuadricula
-$xcrud->highlight_row('evaluadoF', '=', "1", '#CBFF22'); // highlight_row resalta con color la fila en la cuadricula
-
+//$xcrud->highlight_row('evaluadoF', '=', "1", '#CBFF22'); // highlight_row resalta con color la fila en la cuadricula
+$xcrud->highlight_row('conclusion', '=', "Muy recomendado", '#78d13e'); // highlight_row resalta con color la fila en la cuadricula
+$xcrud->highlight_row('conclusion', '=', "Recomendado", '#c6f530'); // highlight_row resalta con color la fila en la cuadricula
+$xcrud->highlight_row('conclusion', '=', "No recomendado", '#e04428'); // highlight_row resalta con color la fila en la cuadricula
+//#e04428
 //regiones
 $xcrud->relation('id_region','_regiones','id_region','nombre');
 //$xcrud->relation('G1Q00008','_provincias','id_provincia','nombre');
-$xcrud->order_by('id_region','desc');
+//$xcrud->order_by('id_region','desc');
+$xcrud->order_by('conclusion','desc');
+
 
 
 
