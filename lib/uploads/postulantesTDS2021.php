@@ -32,14 +32,14 @@ $xcrud->label('db12','Correo electrónico');
 $xcrud->label('db13','Teléfono fijo');
 $xcrud->label('db14','Teléfono celular');
 $xcrud->label('db15','¿Usa whatsapp?');
-$xcrud->label('db22','¿Sos persona afrodescendiente o con familiares de origen africano?');
-$xcrud->label('db23','¿Pertenecés a una comunidad de pueblos indígenas o descendiente de pueblos indígenas u originarios?');
+$xcrud->label('db22','¿Es persona afrodescendiente o con familiares de origen africano?');
+$xcrud->label('db23','¿Pertenecé a una comunidad de pueblos indígenas o descendiente de pueblos indígenas u originarios?');
 $xcrud->label('db23a1','¿A cuál comunidad originaria o pueblo indígena pertenecés o de cuál sos descendiente?');
 $xcrud->label('p01','Seleccioná tu provincia de residencia en Argentina');
 $xcrud->label('db7','Escribe tu barrio de residencia');
 $xcrud->label('col1','¿De qué tipo de organización o colectivo formas parte?');
 $xcrud->label('col1other','¿De qué tipo de organización o colectivo formas parte? Otro');
-$xcrud->label('col2','Nombre del colectivo cultural u organización cultural comunitaria');
+$xcrud->label('col2','Nombre de la organización cultural comunitaria');
 $xcrud->label('col5','Dirección');
 $xcrud->label('col7','Redes sociales');
 $xcrud->label('cod8','Año de inicio de actividades');
@@ -74,10 +74,10 @@ $xcrud->label('co4SQ004','Grupo 4: jueves de 11 a 13 hs');
 $xcrud->label('co4SQ005','Grupo 5: Jueves 18 a 20 hs');
 $xcrud->label('co5','La dedicación de este ciclo es de cinco horas por semana: dos horas para participar en el aula taller (opciones elegidas anteriormente) y tres horas que administras en tu semana cuando podés para ver videos, leer materiales y/o participar en foros virtuales. ¿Generalmente podrás cumplir con este requisito?');
 $xcrud->label('CO1','Confirmo que leí el programa del curso y acepto los requisitos de participación y aprobación. Podés consultar el marco de la convocatoria y las condiciones de participación del curso de Territorio de Saberes en modalidad a distancia en la página web: www.cultura.gob.ar .');
-$xcrud->label('co6SQ001','Nombre del responsable');
+$xcrud->label('co6SQ001','Nombre del Responsable');
 $xcrud->label('co6SQ002','DNI Responsable');
-$xcrud->label('co6SQ003','Teéfono Responsable');
-$xcrud->label('co6SQ004','Email responsable');
+$xcrud->label('co6SQ003','Teléfono Responsable');
+$xcrud->label('co6SQ004','Email Responsable');
 $xcrud->label('co3','Carta Aval url');
 $xcrud->label('puntaje', 'Puntaje');
 $xcrud->label('evaluadoF', 'Ev. Final');
@@ -107,7 +107,7 @@ $xcrud->label('observacion','Observaciones');
 
 
 //DATOS QUE SE MUESTRAN EN LA LISTA 
-$xcrud->columns('db1,db2,PROVINCIA,LOCALIDAD,id_region,conclusion,Puntaje Final,evaluadoF');
+$xcrud->columns('db1,db2,PROVINCIA,LOCALIDAD,col2,id_region,conclusion,Puntaje Final,evaluadoF');
 
 
 //Ponderación preguntas evaluación cualitativa
@@ -115,7 +115,7 @@ $xcrud->columns('db1,db2,PROVINCIA,LOCALIDAD,id_region,conclusion,Puntaje Final,
 
 //Solapas del legajo 
 
-$xcrud->fields('db1,db2,db3,db3a1,db312,db315,db314,db313,db316,db9,db9other,db10,db11,db12,db13,db14,db15,db22,db23,db23a1,p01,db7,col1,col1other,
+$xcrud->fields('db22,db23,db1,db2,db3,db3a1,db312,db315,db314,db313,db316,db9,db9other,db10,db11,db12,db13,db14,db15,db23a1,p01,db7,col1,col1other,
 col2,col5,col7,cod8,col9,col12,col13,col15,pc1,pc2,pls1SQ001,pls1SQ002,pls1SQ003,pls1SQ004, pls2SQ001,pls2SQ002,pls2SQ003,pls2SQ004,PA1,PA2,PA3,PA4,co4SQ001,co4SQ002,co4SQ003,co4SQ004,co4SQ005,co5,CO1,co6SQ001,co6SQ002,co6SQ003,co6SQ004,co3,co3filecount,PROVINCIA,DEPARTAMENTO,LOCALIDAD,id_provincia,id_region', false, 'Perfil del postulante');
 
 $xcrud->fields('col9_e,col12_e,pls1SQ001_e,pls1SQ002_e,pls1SQ003_e,pls1SQ004_e,pls2SQ001_e,pls2SQ002_e,pls2SQ003_e,pc1_e,pc2_e', false, 'Evaluación Cuantitativa');
