@@ -1,10 +1,9 @@
 <?php 
 //clases autenticación 
-
 $xcrud = Xcrud::get_instance();
 $xcrud->table('tds2021');
 $xcrud->language('es');
-$xcrud->table_name('Evaluación cuantitativa y cualitativa de Postulantes <a class="btn btn-primary" href="https://datossociales.com/evaluar/lib/uploads/Guia_para_equipo_evaluador_de_postulaciones_para_TDS_2021.pdf" target="_blank" ><i class="fa fa-file"></i>  Guia de Evaluación</a>');
+$xcrud->table_name('Evaluación Final Directorxs <a class="btn btn-primary" href="https://datossociales.com/evaluar/lib/uploads/Guia_para_equipo_evaluador_de_postulaciones_para_TDS_2021.pdf" target="_blank" ><i class="fa fa-file"></i>  Guia de Evaluación</a>');
 
 $xcrud->label('id','Id');
 $xcrud->label('submitdate','Fecha de envío');
@@ -105,13 +104,13 @@ $xcrud->label('conclusion','Conclusión');
 $xcrud->label('observacion','Observaciones');
 
 
-
 //DATOS QUE SE MUESTRAN EN LA LISTA 
-$xcrud->columns('id,db1,db2,PROVINCIA,LOCALIDAD,db22,db23,col2,id_region,conclusion,Puntaje Final,evaluadoF');
+$xcrud->columns('id,db1,db2,PROVINCIA,LOCALIDAD,id_region,conclusion,Puntaje Final,evaluadoF');
 
 
 //Ponderación preguntas evaluación cualitativa
 //$xcrud->change_type('preg08','select','',',1,2,3,4,5');
+$xcrud->change_type('evaluadoF','select','',',SI,NO,A REVISAR,SUPLENTE');
 
 //Solapas del legajo 
 
@@ -120,7 +119,7 @@ col2,col5,col7,cod8,col9,col12,col13,col15,pc1,pc2,pls1SQ001,pls1SQ002,pls1SQ003
 
 $xcrud->fields('col9_e,col12_e,pls1SQ001_e,pls1SQ002_e,pls1SQ003_e,pls1SQ004_e,pls2SQ001_e,pls2SQ002_e,pls2SQ003_e,pc1_e,pc2_e', false, 'Evaluación Cuantitativa');
 
-$xcrud->fields('col10, col10_e, col11, col11_e, col14,col14_e, pls1other,pls1other_e, pls2other, pls2other_e, pls3, pls3_e , evaluador, conclusion, observacion, Puntaje Final', false, 'Evaluación Cualitativa');
+$xcrud->fields('col10, col10_e, col11, col11_e, col14,col14_e, pls1other,pls1other_e, pls2other, pls2other_e, pls3, pls3_e , evaluador, conclusion, observacion, evaluadoF, Puntaje Final', false, 'Evaluación Cualitativa');
 
 //Puntaje ponderado seleccion de valores
 
@@ -280,6 +279,15 @@ $xcrud->disabled('LOCALIDAD');
 $xcrud->disabled('id_provincia');
 $xcrud->disabled('id_region');
 $xcrud->disabled('co3filecount');
+$xcrud->disabled('col10_e');
+$xcrud->disabled('col11_e');
+$xcrud->disabled('col14_e');
+$xcrud->disabled('pls1other_e');
+$xcrud->disabled('pls2other_e');
+$xcrud->disabled('pls3_e');
+$xcrud->disabled('evaluador');
+$xcrud->disabled('conclusion');
+
 
 
 
@@ -317,9 +325,12 @@ $xcrud->change_type('pls2other','none');
 
 //campos coloreados
 //$xcrud->highlight_row('evaluadoF', '=', "1", '#CBFF22'); // highlight_row resalta con color la fila en la cuadricula
-$xcrud->highlight_row('conclusion', '=', "Muy recomendado", '#78d13e'); // highlight_row resalta con color la fila en la cuadricula
-$xcrud->highlight_row('conclusion', '=', "Recomendado", '#c6f530'); // highlight_row resalta con color la fila en la cuadricula
-$xcrud->highlight_row('conclusion', '=', "No recomendado", '#e04428'); // highlight_row resalta con color la fila en la cuadricula
+
+$xcrud->highlight_row('evaluadoF', '=', 'SI', '#CBFF22');
+$xcrud->highlight_row('evaluadoF', '=', 'NO', '#FF9191');
+$xcrud->highlight_row('evaluadoF', '=', 'SUPLENTE', '#FFFF91');
+$xcrud->highlight_row('evaluadoF', '=', 'A REVISAR', '#FFD3B5');
+
 //#e04428
 //regiones
 $xcrud->relation('id_region','_regiones','id_region','nombre');
