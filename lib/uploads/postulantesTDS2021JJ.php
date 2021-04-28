@@ -3,7 +3,7 @@
 $xcrud = Xcrud::get_instance();
 $xcrud->table('tds2021');
 $xcrud->language('es');
-$xcrud->table_name('Evaluación Final Directorxs <a class="btn btn-primary" href="https://datossociales.com/evaluar/lib/uploads/Guia_para_equipo_evaluador_de_postulaciones_para_TDS_2021.pdf" target="_blank" ><i class="fa fa-file"></i>  Guia de Evaluación</a>');
+$xcrud->table_name('Evaluación Final Territorio de Saberes 2021 <a class="btn btn-primary" href="https://datossociales.com/evaluar/lib/uploads/Guia_para_equipo_evaluador_de_postulaciones_para_TDS_2021.pdf" target="_blank" ><i class="fa fa-file"></i>  Guia de Evaluación</a>');
 
 $xcrud->label('id','Id');
 $xcrud->label('submitdate','Fecha de envío');

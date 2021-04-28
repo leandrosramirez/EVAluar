@@ -11,11 +11,13 @@ if ($conn->connect_error) {
 }
 
 // sql Crea la tabla usando Lenguaje PHP
-$sql = "ALTER TABLE alumnos ADD direccion varchar(50) NOT NULL;";
+//$sql = "ALTER TABLE tds2021 ADD direccion varchar(50) NOT NULL;";
+$sql = "ALTER TABLE tds2021 MODIFY COLUMN db22 varchar(10) NOT NULL;" ; // Cambio el tipo de dato de una columna
+
 
 // Se verifica si la tabla ha sido creado
 if ($conn->query($sql) === TRUE) {
-    echo "se agrego todo ok re piola ameo";
+    echo "se agrego todo ok";
 } else {
     echo "Hubo un error al crear la tabla alumnos: " . $conn->error;
 }
